@@ -77,7 +77,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="BotaoLogoutC" min="-2" max="-2" attributes="0"/>
+                              <Component id="BotaoVoltarC" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -96,7 +96,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BotaoLogoutC" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoVoltarC" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -138,7 +138,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ENDERE&#xc7;O:"/>
+                <Property name="text" type="java.lang.String" value="E-MAIL:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -154,12 +154,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoGravarCActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BotaoLogoutC">
+            <Component class="javax.swing.JButton" name="BotaoVoltarC">
               <Properties>
-                <Property name="text" type="java.lang.String" value="LOGOUT"/>
+                <Property name="text" type="java.lang.String" value="VOLTAR"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLogoutCActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoVoltarCActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CampoNomeC">
@@ -174,6 +174,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="LIMPAR CAMPOS"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLimparCActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -210,7 +213,7 @@
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="BotaoLogoutF" min="-2" max="-2" attributes="0"/>
+                              <Component id="BotaoVoltarF" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -267,7 +270,7 @@
                               <Component id="CampoMatriculaF" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="CampoCargoF" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="BotaoLogoutF" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotaoVoltarF" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -301,12 +304,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="BotaoLogoutF">
+            <Component class="javax.swing.JButton" name="BotaoVoltarF">
               <Properties>
-                <Property name="text" type="java.lang.String" value="LOGOUT"/>
+                <Property name="text" type="java.lang.String" value="VOLTAR"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLogoutFActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoVoltarFActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -387,6 +390,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="LIMPAR CAMPOS"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLimparFActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckAdmin">
               <Properties>

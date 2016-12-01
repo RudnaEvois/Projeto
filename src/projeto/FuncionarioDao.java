@@ -11,13 +11,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
 
 public class FuncionarioDao extends GenericDao {
 
     public void salvar(Funcionario funcionario) throws SQLException {
+        
         String insert = "INSERT INTO FUNCIONÁRIOS(Matricula, Nome, Idade, Cargo, Salario,Telefone,Senha,admin) VALUES(?,?,?,?,?,?,?,?)";
-        save(insert, funcionario.getMatricula(), funcionario.getNome(), funcionario.getCargo(), funcionario.getSalario(), funcionario.getTelefone(), funcionario.getSenha(), funcionario.getAdmin());
+        save(insert, funcionario.getMatricula(), funcionario.getNome(), funcionario.getIdade(),funcionario.getCargo(), funcionario.getSalario(), funcionario.getTelefone(), funcionario.getSenha(), funcionario.getAdmin());
 
     }
 

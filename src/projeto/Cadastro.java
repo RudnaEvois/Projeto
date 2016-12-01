@@ -11,16 +11,9 @@ package projeto;
  */
 public class Cadastro {
 
-    private String Cod,endereço, nome, telefone;
+    private String Cod, nome, telefone;
 
-    public String getEndereço() {
-        return endereço;
-    }
-
-    public void setEndereço(String endereço) {
-        this.endereço = endereço;
-    }
-
+  
     public String getCod() {
         return Cod;
     }

@@ -6,6 +6,7 @@
 package projeto;
 
 import Controller.FuncionarioController;
+import Controller.ClienteController;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
@@ -49,14 +50,14 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         BotaoGravarC = new javax.swing.JButton();
-        BotaoLogoutC = new javax.swing.JButton();
+        BotaoVoltarC = new javax.swing.JButton();
         CampoNomeC = new javax.swing.JTextField();
         CampoEndereço = new javax.swing.JTextField();
         CampoTelefoneC = new javax.swing.JTextField();
         CampoCod = new javax.swing.JTextField();
         BotaoLimparC = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        BotaoLogoutF = new javax.swing.JButton();
+        BotaoVoltarF = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -82,7 +83,7 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
 
         jLabel2.setText("Código do Cliente:");
 
-        jLabel3.setText("ENDEREÇO:");
+        jLabel3.setText("E-MAIL:");
 
         jLabel4.setText("TELEFONE:");
 
@@ -93,14 +94,19 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
             }
         });
 
-        BotaoLogoutC.setText("LOGOUT");
-        BotaoLogoutC.addActionListener(new java.awt.event.ActionListener() {
+        BotaoVoltarC.setText("VOLTAR");
+        BotaoVoltarC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoLogoutCActionPerformed(evt);
+                BotaoVoltarCActionPerformed(evt);
             }
         });
 
         BotaoLimparC.setText("LIMPAR CAMPOS");
+        BotaoLimparC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoLimparCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,7 +134,7 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(BotaoLogoutC)
+                        .addComponent(BotaoVoltarC)
                         .addGap(18, 18, 18))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(138, 138, 138)
@@ -141,7 +147,7 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BotaoLogoutC)
+                .addComponent(BotaoVoltarC)
                 .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -166,10 +172,10 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
 
         AbaFuncionario.addTab("Cliente ", jPanel1);
 
-        BotaoLogoutF.setText("LOGOUT");
-        BotaoLogoutF.addActionListener(new java.awt.event.ActionListener() {
+        BotaoVoltarF.setText("VOLTAR");
+        BotaoVoltarF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoLogoutFActionPerformed(evt);
+                BotaoVoltarFActionPerformed(evt);
             }
         });
 
@@ -217,6 +223,11 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
         });
 
         BotaoLimparF.setText("LIMPAR CAMPOS");
+        BotaoLimparF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoLimparFActionPerformed(evt);
+            }
+        });
 
         CheckAdmin.setText("Colocar no grupo de Admin");
         CheckAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +258,7 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CampoCargoF)))
                         .addGap(18, 18, 18)
-                        .addComponent(BotaoLogoutF))
+                        .addComponent(BotaoVoltarF))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(BotaoLimparF, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,7 +302,7 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addComponent(CampoMatriculaF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CampoCargoF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BotaoLogoutF))
+                    .addComponent(BotaoVoltarF))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -335,16 +346,30 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoGravarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGravarCActionPerformed
-        // TODO add your handling code here:
+ String Cod,NomeC,Email,TelefoneC;
+       Cod=CampoCod.getText();
+       NomeC=CampoNomeC.getText();
+       Email=CampoEndereço.getText();
+       TelefoneC=CampoTelefoneC.getText();
+    
+       try{
+           new ClienteController().salvar(Cod,NomeC,Email,TelefoneC);
+           JOptionPane.showMessageDialog(null,"Cliente Cadastrado com Sucesso!!!");
+       }catch(SQLException | ParseException ex){
+          Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+       clearFieldsC();
     }//GEN-LAST:event_BotaoGravarCActionPerformed
 
-    private void BotaoLogoutCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogoutCActionPerformed
-        System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoLogoutCActionPerformed
+    private void BotaoVoltarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarCActionPerformed
+new EntradaAdmin().setVisible(true);
+setVisible(false);       // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoVoltarCActionPerformed
 
-    private void BotaoLogoutFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogoutFActionPerformed
-        System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoLogoutFActionPerformed
+    private void BotaoVoltarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarFActionPerformed
+new EntradaAdmin().setVisible(true);
+setVisible(false);
+    }//GEN-LAST:event_BotaoVoltarFActionPerformed
 
     private void CampoNomeFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNomeFActionPerformed
         // TODO add your handling code here:
@@ -376,27 +401,48 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
         f.setAdmin(admin);
         
         try{
-             System.out.println(matricula+ nome+ idade+ cargo+ salario+ telefone+ senha+ admin);
-                
-            new FuncionarioController().salvar(matricula, nome, idade, cargo, salario, telefone, senha, admin);
-            System.out.println(matricula+ nome+ idade+ cargo+ salario+ telefone+ senha+ admin);
+                       
+            new FuncionarioController().salvar(matricula, nome, idade, cargo, salario, telefone, senha, f.getAdmin());
+          JOptionPane.showMessageDialog(null,"Funcionário cadastrado com sucesso!!!");
                    
 //new FuncionarioController().listaFuncionarios();
-        }catch(SQLException ex) {
+        }catch(SQLException | ParseException ex) {
           // JOptionPane.showMessageDialog(null,"Já existe um funcionário cadastrado com a mesma matricula");
            Logger.getLogger(Funcionario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(Funcionario.class.getName()).log(Level.SEVERE, null, ex);
         }
+        clearFieldsF();
     }//GEN-LAST:event_BotaoSalvarFActionPerformed
 
     private void CampoMatriculaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoMatriculaFActionPerformed
-        // TODO add your handling code here:
+      
+           
+       
     }//GEN-LAST:event_CampoMatriculaFActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void BotaoLimparCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparCActionPerformed
+clearFieldsC();        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoLimparCActionPerformed
+
+    private void BotaoLimparFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparFActionPerformed
+clearFieldsF();        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoLimparFActionPerformed
+public void clearFieldsC(){
+    CampoCod.setText("");
+    CampoNomeC.setText("");
+    CampoEndereço.setText("");
+    CampoTelefoneC.setText("");
+    
+}
+public void clearFieldsF(){
+    CampoMatriculaF.setText("");
+    CampoNomeF.setText("");
+    CampoIdadeF.setText("");
+    CampoCargoF.setText("");
+    CampoSalarioF.setText("");
+    CampoTelefoneF.setText("");
+    CampoSenhaF.setText("");
+    
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -434,9 +480,9 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
     private javax.swing.JButton BotaoGravarC;
     private javax.swing.JButton BotaoLimparC;
     private javax.swing.JButton BotaoLimparF;
-    private javax.swing.JButton BotaoLogoutC;
-    private javax.swing.JButton BotaoLogoutF;
     private javax.swing.JButton BotaoSalvarF;
+    private javax.swing.JButton BotaoVoltarC;
+    private javax.swing.JButton BotaoVoltarF;
     private javax.swing.JTextField CampoCargoF;
     private javax.swing.JTextField CampoCod;
     private javax.swing.JTextField CampoEndereço;
