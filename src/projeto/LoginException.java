@@ -7,8 +7,11 @@ package projeto;
 
 /**
  *
- * @author a1600052
+ * @author USER
  */
-public class CFuncionario {
-    
+public class LoginException extends Exception {
+    @Override
+    public String toString(){
+        return "Login ou senha Inválidos";
+    }
 }

@@ -5,18 +5,27 @@
  */
 package projeto;
 
+public class Funcionario extends Cadastro {
 
-public class CadastroFuncionario extends Cadastro{
-    private int idade;
-    private String Cargo,login="1234",senha="abcd";
-    private Double salario;
-    
-    public String getLogin() {
-        return login;
+    private int idade,admin;
+     private String Cargo, senha, matricula;
+    private float salario;
+
+    public int getAdmin() {
+        return admin;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
+   
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getSenha() {
@@ -26,7 +35,6 @@ public class CadastroFuncionario extends Cadastro{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
 
     public int getIdade() {
         return idade;
@@ -44,15 +52,12 @@ public class CadastroFuncionario extends Cadastro{
         this.Cargo = Cargo;
     }
 
-    public Double getSalario() {
+    public float getSalario() {
         return salario;
     }
 
-    public void setSalario(Double salario) {
+    public void setSalario(float salario) {
         this.salario = salario;
     }
- 
-    
-    
-    
+
 }
