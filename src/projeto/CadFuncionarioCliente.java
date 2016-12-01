@@ -5,6 +5,14 @@
  */
 package projeto;
 
+import Controller.FuncionarioController;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author a1600052
@@ -17,7 +25,14 @@ public class CadFuncionarioCliente extends javax.swing.JFrame {
     public CadFuncionarioCliente() {
         initComponents();
     }
-int admin=0;
+    int admin = 0;
+
+    String matricula, cargo, nome, telefone, senha;
+    int idade;
+    float salario;
+    private List<Funcionario> clienteList = new FuncionarioController().listaFuncionarios();
+ private int registroAtual = 0;
+	private Long key;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -166,6 +181,12 @@ int admin=0;
 
         jLabel8.setText("CARGO:");
 
+        CampoMatriculaF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoMatriculaFActionPerformed(evt);
+            }
+        });
+
         CampoNomeF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoNomeFActionPerformed(evt);
@@ -182,7 +203,7 @@ int admin=0;
 
         jLabel10.setText("SALARIO: R$");
 
-        CampoSalarioF.setText("0,00");
+        CampoSalarioF.setText("0.00");
 
         jLabel11.setText("TELEFONE:");
 
@@ -318,11 +339,11 @@ int admin=0;
     }//GEN-LAST:event_BotaoGravarCActionPerformed
 
     private void BotaoLogoutCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogoutCActionPerformed
-System.exit(0);        // TODO add your handling code here:
+        System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_BotaoLogoutCActionPerformed
 
     private void BotaoLogoutFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogoutFActionPerformed
-System.exit(0);        // TODO add your handling code here:
+        System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_BotaoLogoutFActionPerformed
 
     private void CampoNomeFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNomeFActionPerformed
@@ -338,12 +359,40 @@ System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_CheckAdminActionPerformed
 
     private void BotaoSalvarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarFActionPerformed
-if(CheckAdmin.isSelected())
-    admin=1;
-else
-    admin=0;
+        if (CheckAdmin.isSelected()) {
+            admin = 1;
+        } else {
+            admin = 0;
+        }
         System.out.println(admin);// TODO add your handling code here:
+        matricula = CampoMatriculaF.getText();
+        nome = CampoNomeF.getText();
+        cargo = CampoCargoF.getText();
+        telefone = CampoTelefoneF.getText();
+        senha = CampoSenhaF.getText();
+        idade = Integer.parseInt(CampoIdadeF.getText());
+        salario = Float.parseFloat(CampoSalarioF.getText());
+        Funcionario f=new Funcionario();
+        f.setAdmin(admin);
+        
+        try{
+             System.out.println(matricula+ nome+ idade+ cargo+ salario+ telefone+ senha+ admin);
+                
+            new FuncionarioController().salvar(matricula, nome, idade, cargo, salario, telefone, senha, admin);
+            System.out.println(matricula+ nome+ idade+ cargo+ salario+ telefone+ senha+ admin);
+                   
+//new FuncionarioController().listaFuncionarios();
+        }catch(SQLException ex) {
+          // JOptionPane.showMessageDialog(null,"Já existe um funcionário cadastrado com a mesma matricula");
+           Logger.getLogger(Funcionario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Funcionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BotaoSalvarFActionPerformed
+
+    private void CampoMatriculaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoMatriculaFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoMatriculaFActionPerformed
 
     /**
      * @param args the command line arguments

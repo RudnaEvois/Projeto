@@ -102,12 +102,12 @@ stmt.setString(1,Nome);
             contato.setAdmin(rs.getInt("admin"));
             ;
             
-           //if(contato.getAdmin()==1)
-             //  funcao="Administrador";
-           //else
-             //  funcao="Colaborador";
+           if(contato.getAdmin()==1)
+              funcao="Administrador";
+           else
+              funcao="Colaborador";
                    }
- //JOptionPane.showMessageDialog(null, "Matricula do(a) Funcionário: " + contato.getMatricula() + "\n Nome: " + contato.getNome() + "\n Idade: "+ contato.getIdade()+"\n Cargo: "+contato.getCargo()+"\n Salário: "+contato.getSalario()+"\n Telefone: "+contato.getTelefone()+"\n Grupo:"+ funcao);
+ JOptionPane.showMessageDialog(null, "Matricula do(a) Funcionário: " + contato.getMatricula() + "\n Nome: " + contato.getNome() + "\n Idade: "+ contato.getIdade()+"\n Cargo: "+contato.getCargo()+"\n Salário: "+contato.getSalario()+"\n Telefone: "+contato.getTelefone()+"\n Grupo:"+ funcao);
         
         rs.close();
         stmt.close();

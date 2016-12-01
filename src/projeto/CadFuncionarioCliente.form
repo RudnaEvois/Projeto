@@ -330,6 +330,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CampoMatriculaF">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoMatriculaFActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CampoCargoF">
             </Component>
@@ -355,7 +358,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="CampoSalarioF">
               <Properties>
-                <Property name="text" type="java.lang.String" value="0,00"/>
+                <Property name="text" type="java.lang.String" value="0.00"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
