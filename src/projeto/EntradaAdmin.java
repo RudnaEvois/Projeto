@@ -102,6 +102,11 @@ public class EntradaAdmin extends javax.swing.JFrame {
         jMenu3.add(jMenuItem7);
 
         jMenuItem3.setText("por Nome");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem3);
 
         jMenu2.add(jMenu3);
@@ -117,6 +122,11 @@ public class EntradaAdmin extends javax.swing.JFrame {
         jMenu4.add(jMenuItem4);
 
         jMenuItem5.setText("por Nome");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem5);
 
         jMenu2.add(jMenu4);
@@ -124,6 +134,11 @@ public class EntradaAdmin extends javax.swing.JFrame {
         jMenu5.setText("Produtos");
 
         jMenuItem8.setText("por Código");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem8);
 
         jMenuItem9.setText("por Nome");
@@ -184,18 +199,29 @@ setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-String buscacod=JOptionPane.showInputDialog("Digite o Código do Cliente: ");
-        try {
-            new ClienteController().buscaClientePorCod(buscacod);    
-        } catch (SQLException ex) {
-            Logger.getLogger(EntradaAdmin.class.getName()).log(Level.SEVERE, null, ex);
-            //JOptionPane.showInputDialog
-        }
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+Consultar cc=new Consultar();
+cc.listarC();
 
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+Consultar cc=new Consultar();
+cc.listarF();// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+Consultar cc=new Consultar();
+cc.listarP();// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+Consultar cn=new Consultar();
+//cn.listarCporNome();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+Consultar c=new Consultar();
+      c.listarFporNome();        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
