@@ -5,6 +5,13 @@
  */
 package projeto;
 
+import Controller.ProdutoController;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author a1600052
@@ -65,7 +72,7 @@ public class CadProdutos extends javax.swing.JFrame {
 
         CampoVVenda.setText("0,00");
 
-        BotaoVoltar.setText("LOGOUT");
+        BotaoVoltar.setText("VOLTAR");
         BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoVoltarActionPerformed(evt);
@@ -73,6 +80,11 @@ public class CadProdutos extends javax.swing.JFrame {
         });
 
         BotaoGravar.setText("GRAVAR");
+        BotaoGravar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoGravarActionPerformed(evt);
+            }
+        });
 
         BotãoConsultar.setText("CONSULTAR");
         BotãoConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -177,6 +189,26 @@ public class CadProdutos extends javax.swing.JFrame {
     private void BotãoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoConsultarActionPerformed
        
     }//GEN-LAST:event_BotãoConsultarActionPerformed
+
+    private void BotaoGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGravarActionPerformed
+String Cod, Nome;
+        int Quant;
+        float VCusto,VVenda;
+Cod=CampoCod.getText();
+Nome=CampoNome.getText();
+Quant=Integer.parseInt(CampoQuant.getText());
+VCusto=Float.parseFloat(CampoVCusto.getText());
+VVenda=Float.parseFloat(CampoVVenda.getText());
+
+try{
+    new ProdutoController().salvar(Cod,Nome,Quant,VCusto,VVenda);
+    JOptionPane.showMessageDialog(null,"Produto Cadastrado com sucesso!!!");
+}catch(SQLException|ParseException ex){
+    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        JOptionPane.showMessageDialog(null,"Erro ao cadastrar produto");
+}
+
+    }//GEN-LAST:event_BotaoGravarActionPerformed
 
    
     public static void main(String args[]) {
