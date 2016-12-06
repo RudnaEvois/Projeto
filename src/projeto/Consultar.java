@@ -40,7 +40,7 @@ public class Consultar {
 
                 cli.add(c);
 
-                JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "Telefone: " + c.getTelefone());
+                JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "\n Telefone: " + c.getTelefone());
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,14 +100,14 @@ public List<Funcionario> fun = new ArrayList<Funcionario>();
             e.printStackTrace();
         }
     }
-    /*
+    
       public List<Cliente> clin = new ArrayList<Cliente>();
    public void listarCporNome() {
         ResultSet rs = null;
         Connection cnn = ConnectionDB.getConnection();
         try {
             String Nome = JOptionPane.showInputDialog("Digite o nome do Cliente: ");
-            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM CLIENTES WHERE Nome =" + Nome);
+            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM CLIENTES WHERE Nome LIKE '%" + Nome+"%'");
 
             rs = sql.executeQuery();
             while (rs.next()) {
@@ -119,12 +119,13 @@ public List<Funcionario> fun = new ArrayList<Funcionario>();
 
                 clin.add(c);
 
-                JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "Telefone: " + c.getTelefone());
+                JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "\n Telefone: " + c.getTelefone());
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Cliente não encontrado.");
         }
-    }*/
+    }
    
 public List<Funcionario> func = new ArrayList<Funcionario>();
     public void listarFporNome() {
@@ -133,7 +134,7 @@ public List<Funcionario> func = new ArrayList<Funcionario>();
         try {
 
             String cod = JOptionPane.showInputDialog("Digite o Nome do funcionário");
-            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM FUNCIONÁRIOS WHERE Nome =" + cod);
+            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM FUNCIONÁRIOS WHERE Nome LIKE '%" + cod+"%'");
 
             rs = sql.executeQuery();
             while (rs.next()) {
@@ -153,15 +154,15 @@ public List<Funcionario> func = new ArrayList<Funcionario>();
             e.printStackTrace();
         }
     }
-/*
-    public List<Produto> prod = new ArrayList<Produto>();
-    public void listarP() {
+
+    public List<Produto> prodn = new ArrayList<Produto>();
+    public void listarPporNome() {
         ResultSet rs = null;
         Connection cnn = ConnectionDB.getConnection();
         try {
 
             String cod = JOptionPane.showInputDialog("Digite o Codigo no Produto:");
-            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM PRODUTOS WHERE Cod =" + cod);
+            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM PRODUTOS WHERE Cod LIKE '%" + cod+"%'");
 
             rs = sql.executeQuery();
             while (rs.next()) {
@@ -172,13 +173,14 @@ public List<Funcionario> func = new ArrayList<Funcionario>();
                p.setValorCusto(rs.getFloat("VCusto"));
                 p.setValorVenda(rs.getFloat("VVenda"));
               
-                prod.add(p);
+                prodn.add(p);
             
             JOptionPane.showMessageDialog(null, "Código do Produto: "+p.getCod()+"\n Nome: "+p.getNome()+"\n Quantidade: "+p.getQuant()+"\n Preço de Custo "+p.getValorCusto()+"\n Valor de Venda: "+p.getValorVenda());
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Produto não encontrado");
         }
     }
-*/
+
 }

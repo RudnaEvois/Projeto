@@ -142,6 +142,11 @@ public class EntradaAdmin extends javax.swing.JFrame {
         jMenu5.add(jMenuItem8);
 
         jMenuItem9.setText("por Nome");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem9);
 
         jMenu2.add(jMenu5);
@@ -215,13 +220,18 @@ cc.listarP();// TODO add your handling code here:
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
 Consultar cn=new Consultar();
-//cn.listarCporNome();
+cn.listarCporNome();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
 Consultar c=new Consultar();
-      c.listarFporNome();        // TODO add your handling code here:
+      c.listarFporNome();        
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+Consultar c=new Consultar();
+c.listarPporNome();
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
