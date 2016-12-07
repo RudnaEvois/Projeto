@@ -23,11 +23,11 @@ public class Consultar {
     public List<Cliente> cli = new ArrayList<Cliente>();
             
 
-    public void listarC() {
+    public void listarC(String cod) {
         ResultSet rs = null;
         Connection cnn = ConnectionDB.getConnection();
         try {
-            String cod = JOptionPane.showInputDialog("Digite o código do Cliente ");
+            
             PreparedStatement sql = cnn.prepareStatement("SELECT * FROM CLIENTES WHERE cod =" + cod);
 
             rs = sql.executeQuery();
@@ -40,19 +40,18 @@ public class Consultar {
 
                 cli.add(c);
 
-                JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "\n Telefone: " + c.getTelefone());
-            }
+               }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 public List<Funcionario> fun = new ArrayList<Funcionario>();
-    public void listarF() {
+    public void listarF(String cod) {
         ResultSet rs = null;
         Connection cnn = ConnectionDB.getConnection();
         try {
 
-            String cod = JOptionPane.showInputDialog("Digite a matricula do funcionário");
+         
             PreparedStatement sql = cnn.prepareStatement("SELECT * FROM FUNCIONÁRIOS WHERE matricula =" + cod);
 
             rs = sql.executeQuery();
@@ -68,19 +67,19 @@ public List<Funcionario> fun = new ArrayList<Funcionario>();
                 f.setAdmin(rs.getInt("admin"));
                 fun.add(f);
             
-            JOptionPane.showMessageDialog(null, "Matricula do Funcionário: "+f.getMatricula()+"\n Nome: "+f.getNome()+"\n Cargo: "+f.getCargo()+"\n Idade: "+f.getIdade()+"\n Salario: "+f.getSalario()+"\n Telefone: "+f.getTelefone());}
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public List<Produto> prod = new ArrayList<Produto>();
-    public void listarP() {
+    public void listarP(String cod) {
         ResultSet rs = null;
         Connection cnn = ConnectionDB.getConnection();
         try {
 
-            String cod = JOptionPane.showInputDialog("Digite o Codigo no Produto:");
+           
             PreparedStatement sql = cnn.prepareStatement("SELECT * FROM PRODUTOS WHERE Cod =" + cod);
 
             rs = sql.executeQuery();
@@ -94,19 +93,18 @@ public List<Funcionario> fun = new ArrayList<Funcionario>();
               
                 prod.add(p);
             
-            JOptionPane.showMessageDialog(null, "Código do Produto: "+p.getCod()+"\n Nome: "+p.getNome()+"\n Quantidade: "+p.getQuant()+"\n Preço de Custo "+p.getValorCusto()+"\n Valor de Venda: "+p.getValorVenda());
-            }
+         }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     
       public List<Cliente> clin = new ArrayList<Cliente>();
-   public void listarCporNome() {
+   public void listarCporNome(String Nome) {
         ResultSet rs = null;
         Connection cnn = ConnectionDB.getConnection();
         try {
-            String Nome = JOptionPane.showInputDialog("Digite o nome do Cliente: ");
+         
             PreparedStatement sql = cnn.prepareStatement("SELECT * FROM CLIENTES WHERE Nome LIKE '%" + Nome+"%'");
 
             rs = sql.executeQuery();
@@ -119,8 +117,7 @@ public List<Funcionario> fun = new ArrayList<Funcionario>();
 
                 clin.add(c);
 
-                JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "\n Telefone: " + c.getTelefone());
-            }
+                 }
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null,"Cliente não encontrado.");
@@ -128,13 +125,13 @@ public List<Funcionario> fun = new ArrayList<Funcionario>();
     }
    
 public List<Funcionario> func = new ArrayList<Funcionario>();
-    public void listarFporNome() {
+    public void listarFporNome(String nome) {
         ResultSet rs = null;
         Connection cnn = ConnectionDB.getConnection();
         try {
 
-            String cod = JOptionPane.showInputDialog("Digite o Nome do funcionário");
-            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM FUNCIONÁRIOS WHERE Nome LIKE '%" + cod+"%'");
+          
+            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM FUNCIONÁRIOS WHERE Nome LIKE '%" + nome+"%'");
 
             rs = sql.executeQuery();
             while (rs.next()) {
@@ -149,20 +146,20 @@ public List<Funcionario> func = new ArrayList<Funcionario>();
                 f.setAdmin(rs.getInt("admin"));
                 func.add(f);
             
-            JOptionPane.showMessageDialog(null, "Matricula do Funcionário: "+f.getMatricula()+"\n Nome: "+f.getNome()+"\n Cargo: "+f.getCargo()+"\n Idade: "+f.getIdade()+"\n Salario: "+f.getSalario()+"\n Telefone: "+f.getTelefone());}
+           }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public List<Produto> prodn = new ArrayList<Produto>();
-    public void listarPporNome() {
+    public void listarPporNome(String nome) {
         ResultSet rs = null;
         Connection cnn = ConnectionDB.getConnection();
         try {
 
-            String cod = JOptionPane.showInputDialog("Digite o Codigo no Produto:");
-            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM PRODUTOS WHERE Cod LIKE '%" + cod+"%'");
+           
+            PreparedStatement sql = cnn.prepareStatement("SELECT * FROM PRODUTOS WHERE Nome LIKE '%" + nome+"%'");
 
             rs = sql.executeQuery();
             while (rs.next()) {
@@ -170,13 +167,12 @@ public List<Funcionario> func = new ArrayList<Funcionario>();
                 p.setCod(rs.getString("Cod"));
                 p.setNome(rs.getString("nome"));
                 p.setQuant(rs.getInt("quant"));
-               p.setValorCusto(rs.getFloat("VCusto"));
+                p.setValorCusto(rs.getFloat("VCusto"));
                 p.setValorVenda(rs.getFloat("VVenda"));
               
                 prodn.add(p);
             
-            JOptionPane.showMessageDialog(null, "Código do Produto: "+p.getCod()+"\n Nome: "+p.getNome()+"\n Quantidade: "+p.getQuant()+"\n Preço de Custo "+p.getValorCusto()+"\n Valor de Venda: "+p.getValorVenda());
-            }
+           }
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null,"Produto não encontrado");

@@ -9,7 +9,7 @@ package projeto;
  *
  * @author a1600052
  */
-public class Cadastro {
+public class Pessoa {
 
     private String Cod, nome, telefone;
 

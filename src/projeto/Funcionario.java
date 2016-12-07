@@ -5,7 +5,7 @@
  */
 package projeto;
 
-public class Funcionario extends Cadastro {
+public class Funcionario extends Pessoa {
 
     private int idade,admin;
      private String Cargo, senha, matricula;

@@ -5,6 +5,8 @@
  */
 package projeto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USER
@@ -161,23 +163,40 @@ setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-Consultar c=new Consultar();
-c.listarP();// TODO add your handling code here:
+String cod=JOptionPane.showInputDialog("Digite o código do produto: ");
+        Consultar c=new Consultar();
+c.listarP(cod);
+for(Produto p:c.prod){
+       JOptionPane.showMessageDialog(null, "Código do Produto: "+p.getCod()+"\n Nome: "+p.getNome()+"\n Quantidade: "+p.getQuant()+"\n Preço de Custo "+p.getValorCusto()+"\n Valor de Venda: "+p.getValorVenda());
+            
+}
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-    Consultar c=new Consultar();
-c.listarC();    // TODO add your handling code here:
+String cod = JOptionPane.showInputDialog("Digite o código do Cliente ");
+        Consultar cc=new Consultar();
+cc.listarC(cod);    
+for(Cliente c:cc.cli){
+  JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "\n Telefone: " + c.getTelefone());
+}
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-Consultar c=new Consultar();
-c.listarCporNome();        // TODO add your handling code here:
+String nome=JOptionPane.showInputDialog("Digite o nome do Cliente:");
+        Consultar cc=new Consultar();
+cc.listarCporNome(nome);       
+for(Cliente c:cc.clin){
+JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "\n Telefone: " + c.getTelefone());
+}// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-Consultar c=new Consultar();
-c.listarPporNome();        // TODO add your handling code here:
+String nome=JOptionPane.showInputDialog("Digite o nome do produto:");
+        Consultar c=new Consultar();
+c.listarPporNome(nome);      
+for(Produto p:c.prodn){
+ JOptionPane.showMessageDialog(null, "Código do Produto: "+p.getCod()+"\n Nome: "+p.getNome()+"\n Quantidade: "+p.getQuant()+"\n Preço de Custo "+p.getValorCusto()+"\n Valor de Venda: "+p.getValorVenda());
+}
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**

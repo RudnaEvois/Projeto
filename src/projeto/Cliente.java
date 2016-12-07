@@ -9,7 +9,7 @@ package projeto;
  *
  * @author 20832
  */
-public class Cliente extends Cadastro{
+public class Cliente extends Pessoa{
 private String endereço;
 
     public String getEndereço() {

@@ -9,7 +9,7 @@ package projeto;
  *
  * @author 20832
  */
-public class Produto extends Cadastro{
+public class Produto extends Pessoa{
     String Cod;
     int quant;
     float ValorCusto,ValorVenda;

@@ -204,33 +204,58 @@ setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-Consultar cc=new Consultar();
-cc.listarC();
+String cod=JOptionPane.showInputDialog("Digite o código do cliente: ");
+        Consultar cc=new Consultar();
+cc.listarC(cod);
+for(Cliente c:cc.cli){
+  JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "\n Telefone: " + c.getTelefone());
+}
 
     }//GEN-LAST:event_jMenuItem7ActionPerformed
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-Consultar cc=new Consultar();
-cc.listarF();// TODO add your handling code here:
+String cod=JOptionPane.showInputDialog("Digite a matricula do funcionário: ");
+        Consultar cc=new Consultar();
+cc.listarF(cod);
+for(Funcionario f:cc.fun){
+    JOptionPane.showMessageDialog(null, "Matricula do Funcionário: "+f.getMatricula()+"\n Nome: "+f.getNome()+"\n Cargo: "+f.getCargo()+"\n Idade: "+f.getIdade()+"\n Salario: "+f.getSalario()+"\n Telefone: "+f.getTelefone());
+}
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-Consultar cc=new Consultar();
-cc.listarP();// TODO add your handling code here:
+String cod=JOptionPane.showInputDialog("Digite o código do produto: ");
+        Consultar c=new Consultar();
+c.listarP(cod);
+for(Produto p:c.prod){
+       JOptionPane.showMessageDialog(null, "Código do Produto: "+p.getCod()+"\n Nome: "+p.getNome()+"\n Quantidade: "+p.getQuant()+"\n Preço de Custo "+p.getValorCusto()+"\n Valor de Venda: "+p.getValorVenda());
+            
+}
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-Consultar cn=new Consultar();
-cn.listarCporNome();
+String nome=JOptionPane.showInputDialog("Digite o nome do Cliente:");
+        Consultar cc=new Consultar();
+cc.listarCporNome(nome);       
+for(Cliente c:cc.clin){
+JOptionPane.showMessageDialog(null, "Código do Cliente: " + c.getCod() + "\n Nome: " + c.getNome() + "\n E-mail: " + c.getEndereço() + "\n Telefone: " + c.getTelefone());
+}
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-Consultar c=new Consultar();
-      c.listarFporNome();        
+String nome=JOptionPane.showInputDialog("Digite o nome do funcionario: ");
+        Consultar c=new Consultar();
+      c.listarFporNome(nome);   
+      for(Funcionario f:c.func){
+           JOptionPane.showMessageDialog(null, "Matricula do Funcionário: "+f.getMatricula()+"\n Nome: "+f.getNome()+"\n Cargo: "+f.getCargo()+"\n Idade: "+f.getIdade()+"\n Salario: "+f.getSalario()+"\n Telefone: "+f.getTelefone());
+      }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-Consultar c=new Consultar();
-c.listarPporNome();
+String nome=JOptionPane.showInputDialog("Digite o nome do produto:");
+        Consultar c=new Consultar();
+c.listarPporNome(nome);      
+for(Produto p:c.prodn){
+ JOptionPane.showMessageDialog(null, "Código do Produto: "+p.getCod()+"\n Nome: "+p.getNome()+"\n Quantidade: "+p.getQuant()+"\n Preço de Custo "+p.getValorCusto()+"\n Valor de Venda: "+p.getValorVenda());
+}
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**

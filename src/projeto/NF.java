@@ -5,6 +5,8 @@
  */
 package projeto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 20832
@@ -100,35 +102,34 @@ public class NF extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(110, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(24, 24, 24))
+            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoCodC, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CampoCodC, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoCodProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CampoCodProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotaoIncluir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CampoQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(BotaoIncluir)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +170,22 @@ public class NF extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotaoIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoIncluirActionPerformed
-Area.setText(Area.getText()+"\n"+CampoCodProduto.getText());
+NotaFiscal n=new NotaFiscal();
+n.setCodP(CampoCodProduto.getText());
+n.setQuant(Integer.parseInt(CampoQuant.getText()));
+n.quantProduto();
+        if(n.getQuantBD()<=0){
+                JOptionPane.showMessageDialog(null,"Produto indisponível no momento.");
+            }
+        if(Integer.parseInt(CampoQuant.getText())>n.getQuantBD()){
+            JOptionPane.showMessageDialog(null,"Quantidade insuficiente! \n A Quantidade atual em estoque é de :"+n.getQuantBD());
+        }else
+            Area.setText(Area.getText()+"\n" +" Cód :"+n.getCodP()+" Produto "+n.getNomeP()+" Quantidade "+CampoQuant.getText());
+        int novoQuant=n.getQuantBD()-Integer.parseInt(CampoQuant.getText());
+        if(novoQuant>=0){
+        n.reduzQuant(novoQuant);
+        }
+
              
     }//GEN-LAST:event_BotaoIncluirActionPerformed
 
@@ -178,7 +194,11 @@ Area.setText(CampoCodC.getText());      // TODO add your handling code here:
     }//GEN-LAST:event_CampoCodCActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    Area.setText(CampoCodC.getText());      // TODO add your handling code here:
+NotaFiscal n=new NotaFiscal();
+n.setCodC(CampoCodC.getText());
+n.nomeCliente();
+Area.setText("Cliente: "+n.getNomeC()+"\n");
+      //  Area.setText(CampoCodC.getText());      // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
